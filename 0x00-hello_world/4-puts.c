@@ -1,9 +1,11 @@
 #include <stdio.h>
-
 /**
- * main is the Entry point of the program
+ * main - Entry point
+ * 
  * Description: prints "\"Programming is like building a multilingual puzzle"
- * Return: 0
+ * @parameter: describe the parameter
+ * 
+ * Return: Always 0 (Success)
  */
 
 int main(void)
