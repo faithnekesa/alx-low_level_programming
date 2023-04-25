@@ -1,3 +1,4 @@
+#include <stdio.h>
 /**
  * main - prints the sum of the even-valued terms under 4000000
  * followed by a new line
