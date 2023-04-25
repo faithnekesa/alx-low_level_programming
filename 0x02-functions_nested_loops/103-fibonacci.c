@@ -12,7 +12,7 @@ int main(void)
 		tmp = i + j;
 		i = j;
 		j = tmp;
-		sum += (j % 2 == 0) ? f2 : 0;
+		sum += (j % 2 == 0) ? j : 0;
 	}
 	printf("%li\n", sum);
 	return (0);
