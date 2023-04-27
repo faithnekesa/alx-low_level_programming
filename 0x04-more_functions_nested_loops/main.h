@@ -1,6 +1,9 @@
 #ifndef main_h
 #define main_h
 
+/* _putchar.c */
+int _putchar(char);
+
 /* 0-isupper.c */
 int _isupper(int c);
 
