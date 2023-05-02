@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * prints half of a string, followed by a new line.
+ * puts_half - prints half of a string, followed by a new line.
  * followed by a new line
  * @str: string to be printed
  */
