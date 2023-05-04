@@ -1,25 +1,23 @@
 #include "main.h"
 /**
- * cap_string -Function that capitalizes all words of a string
- * @s: input string.
- * Return: the pointer to dest.
+ * _strcmp - compares two strings
+ * @s1: first string.
+ * @s2: second string.
+ * Return: 0 if s1 and s2 are equals,
+ * another number if not.
  */
 
-char *cap_string(char *s)
+int _strcmp(char *s1, char *s2)
 {
-	int counter, i;
+	int i = 0, op = 0;
 
-	counter = 1;
-	i = 0;
-	while (s[i] != '\0')
+	while (op == 0)
 	{
-		if (counter == 1 && (s[i] >= 'a' && s[i] <= 'z'))
-		{
-			s[i] -= 32;
-			counter = 0;
-		}
-		counter = is_counter(s[i]);
+		if ((*(s1 + i) == '\0') && (*(s2 + i) == '\0'))
+			break;
+		op = *(s1 + i) - *(s2 + i);
 		i++;
-}
-	return (s);
+	}
+
+	return (op);
 }
