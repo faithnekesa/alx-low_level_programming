@@ -8,16 +8,19 @@
  */
 void print_chessboard(char (*a)[8])
 {
-	unsigned int i, j = 0;
+	int i, j;
 
-	for (i = 0; i < 64; i++)
+	i = 0;
+	while (i < 8)
 	{
-		if (i % 8 == 0 && i != 0)
+		j = 0;
+		while (j < 8)
 		{
-			j = i;
-			printf('\n');
+			putchar (a[i][j]);
+			j++;
 		}
-		printf(a[i / 8][i - j]);
+		putchar ('\n');
+		i++;
 	}
-	printf('\n');
+
 }
