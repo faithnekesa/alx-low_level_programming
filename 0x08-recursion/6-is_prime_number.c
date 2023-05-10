@@ -16,17 +16,17 @@ int is_prime_number(int n)
 }
 
 /**
- * actual_prime - checks if number is prime recursively
+ * actual_prime_num - checks if number is prime recursively
  * @n: number being evaluated
  * @i: iterator
  *
  * Return: 1 if n is prime, 0 otherwise
  */
-int actual_prime(int n, int i)
+int actual_prime_num(int num, int i)
 {
 	if (i == 1)
 		return (1);
-	if (n % i == 0 && i > 0)
+	if (num % i == 0 && i > 0)
 		return (0);
-	return (actual_prime(n, i - 1));
+	return (actual_prime_num(num, i - 1));
 }
