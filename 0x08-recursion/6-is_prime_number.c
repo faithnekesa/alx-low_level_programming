@@ -12,7 +12,7 @@ int is_prime_number(int n)
 {
 	if (n <= 1)
 		return (0);
-	return (actual_prime(n, n - 1));
+	return (actual_prime_num(n, n - 1));
 }
 
 /**
@@ -22,11 +22,11 @@ int is_prime_number(int n)
  *
  * Return: 1 if n is prime, 0 otherwise
  */
-int actual_prime_num(int num, int i)
+int actual_prime_num(int n, int i)
 {
 	if (i == 1)
 		return (1);
-	if (num % i == 0 && i > 0)
+	if (n % i == 0 && i > 0)
 		return (0);
-	return (actual_prime_num(num, i - 1));
+	return (actual_prime_num(n, i - 1));
 }
