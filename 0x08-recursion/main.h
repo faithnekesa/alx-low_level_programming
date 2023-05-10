@@ -10,4 +10,6 @@ int _sqrt_recursion(int n);
 /*0-puts_recursion.c*/
 void _puts_recursion(char *s);
 
+int _putchar(char c);
+
 #endif
