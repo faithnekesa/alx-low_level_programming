@@ -1,7 +1,7 @@
 #include <stdio.h>
-
+#include "main.h"
 /**
- * main -function that multiplies 2 numbers
+ *main -Function prints multiplication of 2 numbers.
  *@argc: count of arguments supplied
  *@argv: array for all arguments in the program
  *Return: Always 0
@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
 	int counter, result;
 
-	if (argc == 1 || argc == 2)
+	if (argc < 3)
 	{
 		printf("Error\n");
 		return (1);
