@@ -14,7 +14,8 @@ char *str_concat(char *s1, char *s2)
 	int counter1, counter2, len1, len2, concat_len;
 	char *concat_result;
 
-	len1, len2 = 0;
+	len1 = 0;
+	len2 = 0;
 
 	if (s1 != NULL)
 	{
@@ -26,6 +27,7 @@ char *str_concat(char *s1, char *s2)
 	if (s2 != NULL)
 	{
 		counter1 = 0;
+
 		while (s2[counter1++] != '\0')
 			len2++;
 	}
