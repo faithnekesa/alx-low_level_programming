@@ -46,7 +46,6 @@ unsigned int counter1, counter2, len1, len2 = 0;
 		counter1++, counter2++;
 		}
 	}
-	concat_result[counter1] = '\0';
 	return (concat_result);
 	}
 }
