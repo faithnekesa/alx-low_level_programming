@@ -27,11 +27,11 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 	if (s2 != NULL)
 	{
-		counter1 = 0;
 		while (s2[counter1++] != '\0')
 			len2++;
 	}
-	counter1, counter2 = 0;
+	counter1 = 0;
+	counter2 = 0;
 	if (s1)
 	{
 		while (counter1 < len1)
