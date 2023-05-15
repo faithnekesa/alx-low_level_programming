@@ -11,9 +11,8 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	char *concat_counter;
-	int i, len = 0;
-	int concat_string = 0;
+	int counter1, counter2, result_len, len1, len2;
+	char *concat_result;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -21,19 +20,30 @@ char *str_concat(char *s1, char *s2)
 	if (s2 == NULL)
 		s2 = "";
 
-	for (i = 0; s1[i] || s2[i]; i++)
-		len++;
+	if (s1 != NULL)
+	{
+		counter1 = 0;
+		while (s1[counter1++] != '\0')
+			len1++;
+	}
 
-	concat_counter = malloc(sizeof(char) * len);
+	if (s2 != NULL)
+	{
+		counter1 = 0;
+		while (s2[counter1++] != '\0')
+			len2++;
+	}
 
-	if (concat_counter == NULL)
+	result_len = len1 + len2;
+	concat_result = (char *)malloc(sizeof(char) * (result_len + 1));
+	if (concat_result == NULL)
 		return (NULL);
 
-	for (i = 0; s1[i]; i++)
-		concat_string[concat_counter++] = s1[i];
+	for (counter1 = 0; counter1 < len1; counter1++)
+		concat_result[counter1] = s1[counter1];
+	for (counter2 = 0; counter2 < len2; counter2++, counter1++)
+		concat_result[counter1] = s2[counter2];
+	concat_result[result_len] = '\0';
 
-	for (i = 0; s2[i]; i++)
-		concat_string[concat_counter++] = s2[i];
-
-	return (concat_counter);
+	return (concat_result);
 }
