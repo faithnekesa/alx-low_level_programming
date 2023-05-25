@@ -1,6 +1,7 @@
 #include "3-calc.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "string.h"
 #include "function_pointers.h"
 
 /**
@@ -13,21 +14,27 @@
 int main(int argc, char *argv[])
 {
 int a, b;
-int (*fptr)(int, int);
+char *new_ptr;
 
 if (argc != 4)
 {
 	printf("Error\n");
 	exit(98);
 }
-fptr = get_op_func(argv[2]);
-if (!fptr)
+a = atoi(argv[1]);
+new_ptr = argv[2];
+b = atoi(argv[3]);
+
+if (get_op_func(new_ptr) == NULL || new_ptr[1] != '\0')
 {
 	printf("Error\n");
 	exit(99);
 }
-a = atoi(argv[1]);
-b = atoi(argv[3]);
-printf("%i\n", fptr(a, b));
-return (1);
+if ((*new_ptr == '/' && b == 0) || (*new_ptr == '%' && b == 0))
+{
+	printf("Error\n");
+	exit(100);
+}
+printf("%d\n", get_op_func(new_ptr)(a, b));
+return (0);
 }
