@@ -4,7 +4,7 @@
 #include "variadic_functions.h"
 
 /**
- * print_numbers -function that prints numbers, followed by a new line.
+ * print_strings -function that prints numbers, followed by a new line.
  * @separator: String to be printed between numbers
  * @n:  number of integers passed to the function
  * Return: The string,void if the string is empty and nil if
