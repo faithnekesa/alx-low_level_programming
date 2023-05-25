@@ -10,22 +10,21 @@
  * Return: The string,void if the string is empty and nil if
  * string is NULL
 */
-
-void print_numbers(const char *separator, const unsigned int n, ...)
+void print_strings(const char *separator, const unsigned int n, ...)
 {
-	unsigned int i;
-	va_list strings;
-	char *string;
+va_list arg_list;
+unsigned int counter;
+char *str;
 
-	va_start(strings, n);
+va_start(arg_list, n);
 
-	for (i = 0; i < n; i++)
-	{
-		string = va_arg(strings, char *);
-		printf("%s", string != NULL ? string : "(nil)");
-		if (i < (n - 1) && separator != NULL)
-			printf("%s", separator);
-	}
-	printf("\n");
-	va_end(strings);
+for (counter = 0; counter < n; counter++)
+{
+if (separator != NULL && counter != 0)
+printf("%s", separator);
+str = va_arg(arg_list, char *);
+printf("%s", (str == NULL) ? "(nil)" : str);
+}
+printf("\n");
+va_end(arg_list);
 }
