@@ -13,20 +13,19 @@
 
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-va_list arg_list;
-unsigned int counter;
+	unsigned int i;
+	va_list strings;
+	char *string;
 
-va_start(arg_list, n);
+	va_start(strings, n);
 
-for (counter = 0; counter < n; counter++)
-{
-printf("%d", va_arg(arg_list, int));
-
-if (separator != NULL && counter != (n - 1))
-{
-printf("%s", separator);
-}
-}
-printf("\n");
-va_end(arg_list);
+	for (i = 0; i < n; i++)
+	{
+		string = va_arg(strings, char *);
+		printf("%s", string != NULL ? string : "(nil)");
+		if (i < (n - 1) && separator != NULL)
+			printf("%s", separator);
+	}
+	printf("\n");
+	va_end(strings);
 }
