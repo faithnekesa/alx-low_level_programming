@@ -2,10 +2,10 @@
 #include "string.h"
 
 /**
- * get_op_func - select correct function for exe
+ * get_op_func - select correct function for execution
  * @s: input params
  *
- * Return: 0 for code succes
+ * Return: 0 for code success
  */
 
 int (*get_op_func(char *s))(int, int)
@@ -20,11 +20,11 @@ int (*get_op_func(char *s))(int, int)
 	};
 int i = 0;
 
-while (i < 5)
+while (ops[i].op)
 {
-if (strcmp(s, ops[i].op) == 0)
-	return (ops[i].f);
-i++;
-}
-return (NULL);
+	if (strcmp(ops[i].op, s) == 0)
+		return (ops[i].f);
+	i++;
+	}
+return( NULL);
 }
