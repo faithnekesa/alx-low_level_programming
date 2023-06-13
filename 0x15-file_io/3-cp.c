@@ -7,7 +7,6 @@ void closeFile(int fileWrite);
 
 /**
  * createBuffer -A function that allocates 1024 buffer bytes
- * @file:A pointer to the file buffer storing string chars
  * Return:A pointer to the buffer
  */
 char *createBuffer(void)
@@ -17,8 +16,6 @@ ioBuffer = malloc(sizeof(char) * 1024);
 
 if (ioBuffer == NULL)
 {
-/**	dprintf(STDERR_FILENO, "IO Error:Unable to write %s\n", file);
- **/
 	exit(99);
 }
 return (ioBuffer);
@@ -65,7 +62,6 @@ toFile = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 do {
 	if (fromFile == -1 || readFile == -1)
 	{
-/**		dprintf(STDERR_FILENO,"IO Error: Unable to write to file %s\n", argv[1]);**/
 		free(ioBuffer);
 		exit(98);
 	}
@@ -78,8 +74,7 @@ do {
 	}
 	readFile = read(fromFile, ioBuffer, 1024);
 	toFile = open(argv[2], O_WRONLY | O_APPEND);
-	}
-	while (readFile > 0);
+	} while (readFile > 0);
 	free(ioBuffer);
 	closeFile(fromFile);
 	closeFile(toFile);
