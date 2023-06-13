@@ -79,8 +79,7 @@ do {
 	}
 	readFile = read(fromFile, ioBuffer, 1024);
 	toFile = open(argv[2], O_WRONLY | O_APPEND);
-	}
-	while (readFile > 0);
+	} while (readFile > 0);
 	free(ioBuffer);
 	closeFile(fromFile);
 	closeFile(toFile);
