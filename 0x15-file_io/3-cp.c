@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char *createBuffer(char *file);
+char *createBuffer(void);
 void closeFile(int fileWrite);
 
 /**
@@ -10,14 +10,15 @@ void closeFile(int fileWrite);
  * @file:A pointer to the file buffer storing string chars
  * Return:A pointer to the buffer
  */
-char *createBuffer(char *file)
+char *createBuffer(void)
 {
 char *ioBuffer;
 ioBuffer = malloc(sizeof(char) * 1024);
 
 if (ioBuffer == NULL)
 {
-	dprintf(STDERR_FILENO, "IO Error:Unable to write %s\n", file);
+/**	dprintf(STDERR_FILENO, "IO Error:Unable to write %s\n", file);
+ **/
 	exit(99);
 }
 return (ioBuffer);
@@ -33,7 +34,7 @@ int closeF = close(fileWrite);
 
 if (closeF == -1)
 {
-	dprintf(STDERR_FILENO, "IO Error: Unable to close %d\n", fileWrite);
+/**	dprintf(STDERR_FILENO, "IO Error: Unable to close %d\n", fileWrite);**/
 	exit(100);
 }
 }
@@ -53,10 +54,10 @@ char *ioBuffer;
 
 if (argc != 3)
 {
-	dprintf(STDERR_FILENO, "cp file_from file_to\n");
+/**	dprintf(STDERR_FILENO, "cp file_from file_to\n");**/
 	exit(97);
 }
-ioBuffer = createBuffer(argv[2]);
+ioBuffer = createBuffer();
 fromFile = open(argv[1], O_RDONLY);
 readFile = read(fromFile, ioBuffer, 1024);
 toFile = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
@@ -64,16 +65,14 @@ toFile = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 do {
 	if (fromFile == -1 || readFile == -1)
 	{
-		dprintf(STDERR_FILENO,
-		"IO Error: Unable to write to file %s\n", argv[1]);
+/**		dprintf(STDERR_FILENO,"IO Error: Unable to write to file %s\n", argv[1]);**/
 		free(ioBuffer);
 		exit(98);
 	}
 	writeFile = write(toFile, ioBuffer, readFile);
 	if (toFile == -1 || writeFile == -1)
 	{
-		dprintf(STDERR_FILENO,
-		"IO Error: Unable to write to %s\n", argv[2]);
+/**		dprintf(STDERR_FILENO,"IO Error: Unable to write to %s\n", argv[2]);**/
 		free(ioBuffer);
 		exit(99);
 	}
