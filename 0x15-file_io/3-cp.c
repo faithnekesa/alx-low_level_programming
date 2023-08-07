@@ -17,7 +17,7 @@ inputBuffer = malloc(sizeof(char) * 1024);
 
 if (inputBuffer == NULL)
 {
-	dprintf(STDERR_FILENO, "Error: Can't write to NAME_OF_THE_FILE%s\n", file);
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
 	exit(99);
 }
 return (inputBuffer);
@@ -33,7 +33,7 @@ int close_file = close(fileWrite);
 
 if (close_file == -1)
 {
-	dprintf(STDERR_FILENO, "Error: Can't close fd FD_VALUE %d\n", fileWrite);
+	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fileWrite);
 	exit(100);
 }
 }
@@ -65,7 +65,7 @@ do {
 	if (fromFile == -1 || readFile == -1)
 	{
 		dprintf(STDERR_FILENO,
-		"Error: Can't read from file NAME_OF_THE_FILE %s\n", argv[1]);
+		"Error: Can't read from file %s\n", argv[1]);
 		free(inputBuffer);
 		exit(98);
 	}
@@ -73,7 +73,7 @@ do {
 	if (toFile == -1 || writeFile == -1)
 	{
 		dprintf(STDERR_FILENO,
-		"Error: Can't write to NAME_OF_THE_FILE %s\n", argv[2]);
+		"Error: Can't write to %s\n", argv[2]);
 		free(inputBuffer);
 		exit(99);
 	}
