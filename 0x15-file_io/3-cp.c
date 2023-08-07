@@ -17,7 +17,7 @@ inputBuffer = malloc(sizeof(char) * 1024);
 
 if (inputBuffer == NULL)
 {
-	dprintf(STDERR_FILENO, "Error: Can't write to NAME_OF_THE_FILE %s\n", file);
+	dprintf(STDERR_FILENO, "Error: Can't write to NAME_OF_THE_FILE%s\n", file);
 	exit(99);
 }
 return (inputBuffer);
@@ -53,7 +53,7 @@ char *inputBuffer;
 
 if (argc != 3)
 {
-	dprintf(STDERR_FILENO, "cp file_from file_to\n");
+	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 	exit(97);
 }
 inputBuffer = createBuffer(argv[2]);
